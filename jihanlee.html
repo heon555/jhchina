@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>퀴즈 사이트</title>
+    <style>
+        body{
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #515BD4 0%, #DD2A7B 74%);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+        /* 컨테이너 스타일 */
+        .container {
+            width: 800px;
+            height: 60%;
+            padding: 20px;
+            background-color: #F2F2F2;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+
+        /* 버튼 스타일 */
+        .quiz-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            background-color: #e5e5e5;
+            color: #e5e5e5;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: Arial, sans-serif;
+
+        }
+
+        /* 버튼 호버링 애니메이션 */
+        .quiz-button:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+
+        /* 퀴즈 결과 영역 */
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 다시 풀기 버튼 */
+        #retry-button {
+            display: none;
+            margin-top: 20px;
+            background-image: linear-gradient(315deg, #7779fe 0%, #fdc52b 90%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; font-family: Arial, sans-serif;">다음 중 이지한의 국적은 무엇인가요?</h1>
+
+        <div>
+            <center>
+
+          <button class="quiz-button" onclick="showResult('correct')">
+    <span style="color: #585858;"><b>한국</b></span>
+</button>  <button class="quiz-button" onclick="showResult('correct')">
+    <span style="color: #585858;"><b>남한</b></span>
+</button>  <button class="quiz-button" onclick="showResult('correct')">
+    <span style="color: #585858;"><b>코리아</b></span>
+</button>
+          <button class="quiz-button" onclick="showResult('correct')">
+    <span style="color: #585858;"><b>대한민국</b></span>
+</button>
+        <button class="quiz-button" onclick="showResult('correct')">
+    <span style="color: #585858;"><b>모두</b></span>
+</button>
+    </center>
+        </div>
+        <div id="result"></div>
+        <center>
+    
+          <button id="retry-button" class="quiz-button" onclick="resetQuiz()">
+    <span style="color: white;"><b>다시 풀기</b></span>
+</button>
+    </center>
+    </div>
+
+    <script>
+        // 정답 버튼을 클릭했을 때 결과를 표시하는 함수
+        function showResult(answer) {
+            var resultDiv = document.getElementById('result');
+            var retryButton = document.getElementById('retry-button');
+            
+            if (answer === 'correct') {
+                resultDiv.textContent = "땡! 이지한의 국적은 중국입니다!";
+                resultDiv.style.color = "red";
+            } else {
+                resultDiv.textContent = "땡! 이지한의 국적은 중국입니다!";
+                resultDiv.style.color = "red"
+                    }
+
+            resultDiv.style.display = "block";
+            retryButton.style.display = "inline-block";
+        }
+
+        // 다시 풀기 버튼을 클릭했을 때 초기화하는 함수
+        function resetQuiz() {
+            var resultDiv = document.getElementById('result');
+            var retryButton = document.getElementById('retry-button');
+            
+            resultDiv.style.display = "none";
+            retryButton.style.display = "none";
+        }
+    </script>
+</body>
+</html>
